@@ -1,45 +1,25 @@
-/**** Some Common operators*****/
-select top 10 *
+-quiz
+--1. How many company in staten island uses dollarpotential above $5,000
+
+select *
 from jc_leadlist
 
-/*****Using leadlist table show a records of customer that have dollarpotential greater than 5000******/
-
-select companyNumber, companyname, dollarpotential
+select companyname, city, dollarpotential
 from jc_leadlist
-where DollarPotential < 5000
+where city ='staten island' and dollarpotential > 5000
 
-select companyNumber, companyname, dollarpotential
-from jc_leadlist
-where DollarPotential >= 250000
+select contactname, city
+from jc_LeadList
+where  city = 'Houston' and ContactName having S
 
-select companyNumber, companyname, dollarpotential
-from jc_leadlist
-where DollarPotential >= 30000
+select companyNumber,contactname, PostalCode
+from jc_LeadList
+where  postalcode > '10461'
 
+--2.using pricemaster table,  How many items are within my $80-100 price range?
 
+select top 10 * from jc_pricemaster
+where price between '80' and '100'
 
-select companyNumber, companyname, dollarpotential
-from jc_leadlist
-where DollarPotential between 40000 and 50000
-
-select top 10 * from JC_Employee_Master
-where hire_date between  1994 and 1998
-
-
-select top 10 * from JC_Employee_Master
-where hire_date between  '1994' and '1998'
-
-/****Employee with the job code is SR2*****/
-
-select employee_number,first_name,last_name, job_code, hire_date, last_date_worked
-from JC_Employee_Master
-where hire_date between  '1994' and '1998' and job_code = 'SR2'
-and Last_Date_Worked is not null
-
-
-/****SQL Distinct that means duplicate****/
-select count (distinct employee_number) as employee_number from JC_Employee_Master
-
-select count(contract_number) from jc_ContractMaster
-select count (distinct customer_num) as employee_number from jc_ContractMaster
+r
 
