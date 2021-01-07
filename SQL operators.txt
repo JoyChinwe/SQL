@@ -1,8 +1,45 @@
-*** How to know the number of column in a table***/
+/**** Some Common operators*****/
+select top 10 *
+from jc_leadlist
 
-select count(*) as #columns
+/*****Using leadlist table show a records of customer that have dollarpotential greater than 5000******/
+
+select companyNumber, companyname, dollarpotential
+from jc_leadlist
+where DollarPotential < 5000
+
+select companyNumber, companyname, dollarpotential
+from jc_leadlist
+where DollarPotential >= 250000
+
+select companyNumber, companyname, dollarpotential
+from jc_leadlist
+where DollarPotential >= 30000
+
+
+
+select companyNumber, companyname, dollarpotential
+from jc_leadlist
+where DollarPotential between 40000 and 50000
+
+select top 10 * from JC_Employee_Master
+where hire_date between  1994 and 1998
+
+
+select top 10 * from JC_Employee_Master
+where hire_date between  '1994' and '1998'
+
+/****Employee with the job code is SR2*****/
+
+select employee_number,first_name,last_name, job_code, hire_date, last_date_worked
 from JC_Employee_Master
+where hire_date between  '1994' and '1998' and job_code = 'SR2'
+and Last_Date_Worked is not null
 
---****null values
- select * from jc_employee_master
-where Last_Date_Worked is not null
+
+/****SQL Distinct that means duplicate****/
+select count (distinct employee_number) as employee_number from JC_Employee_Master
+
+select count(contract_number) from jc_ContractMaster
+select count (distinct customer_num) as employee_number from jc_ContractMaster
+
