@@ -1,0 +1,8 @@
+*** How to know the number of column in a table***/
+
+select count(*) as #columns
+from JC_Employee_Master
+
+--****null values
+ select * from jc_employee_master
+where Last_Date_Worked is not null
