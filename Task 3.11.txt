@@ -1,0 +1,60 @@
+ 
+1. List the names of all staff members, ordered by youngest first to oldest.
+
+    select Name From Staff Order By Name DESC
+
+2. Show a list of the grades and who achieved them, with the highest grade shown first.
+   
+     select StudentID,Grade from grades order by Grade desc
+
+3. Show all modules, listed in order by number of students, the least number of students first.
+
+   select * from modules Order BY NumberStudents ASC
+
+4. List the coordinators of any modules with student numbers less than 150. Only show each coordinator once.
+
+    Select Distinct(Coordinator), NumberStudents FROM modules WHERE NumberStudents < 150
+
+
+Excrise create the following tables.
+
+CREATE TABLE IF NOT EXISTS Modules (
+Module Varchar (7) PRIMARY KEY,
+Name Varchar (50),
+Credits INT (2),
+Semester Varchar (50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ Create Table Degrees (
+ Code Varchar (6) PRIMARY KEY,
+ Name Varchar ( 50),
+ Type Varchar (50),
+ Years INT (1) ,
+ Credits INT (3)
+ )
+
+CREATE TABLE IF NOT EXISTS Lecturers (
+StaffID Varchar (6) PRIMARY KEY,
+Name Varchar (50),
+Position Varchar (50)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS Students (
+Number Varchar (6) PRIMARY KEY,
+Surname Varchar (50),
+Gender Varchar (50),
+UserID Varchar(8),
+Degree Varchar (6),
+Complete Date    
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS Degree_Modules (
+Degree Varchar (6),
+Module Varchar (7), 
+PRIMARY KEY (`Degree`,`Module`), KEY `Module` (`Module`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    ADD CONSTRAINT `lecturer_module_ibfk_2` FOREIGN KEY (`Module`) REFERENCES `modules` (`Module`),
+ADD CONSTRAINT `lecturer_module_ibfk_1` FOREIGN KEY (`StaffID`) REFERENCES `lecturers` (`StaffID`);
+
+    
