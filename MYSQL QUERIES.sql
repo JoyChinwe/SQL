@@ -64,3 +64,8 @@ What is the total salary cost for all full time staff?
  
  11. What is Student 3794012’s average grade across his completed modules?
  SELECT StudentID, ModuleID, AVG(Grade) As AverageGrade FROM grades WHERE StudentID = 3794012
+
+ UPDATE AND DELETE SYNTAX
+
+
+UPDATE grades SET GRade = 50 WHERE StudentID = 6845794 AND ModuleID = "ITNPBD6"
